@@ -3,9 +3,8 @@
 
 	if(isset($_POST['add'])){
 		$loc = $_POST['loc'];
-		$address = $_POST['address'];
 		
-		$sql = "INSERT INTO location (loc, address) VALUES ('$loc', '$address')";
+		$sql = "INSERT INTO location (loc) VALUES ('$loc')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Location added successfully';
 		}

@@ -10,10 +10,15 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="type_add.php">
                 <div class="form-group">
-                    <label for="type_name" class="col-sm-3 control-label">Name</label>
-
+                    <label for="catid" class="col-sm-3 control-label">Category ID</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="name" name="type_name" required>
+                      <input type="text" class="form-control" id="catid" name="catid" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                 </div>
             </div>
@@ -26,6 +31,7 @@
     </div>
 </div>
 
+
 <!-- Edit -->
 <div class="modal fade" id="edit">
     <div class="modal-dialog">
@@ -37,12 +43,19 @@
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="type_edit.php">
-                <input type="hidden" class="catid" name="id">
+                <input type="hidden" class="typeid" name="id">
                 <div class="form-group">
-                    <label for="edit_tname" class="col-sm-3 control-label">Name</label>
+                    <label for="edit_name" class="col-sm-3 control-label">Category ID</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_tname" name="tname">
+                      <input type="text" class="form-control" id="edit_catid" name="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_name" class="col-sm-3 control-label">Name</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="edit_name" name="name">
                     </div>
                 </div>
             </div>

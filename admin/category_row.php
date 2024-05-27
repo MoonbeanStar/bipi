@@ -1,7 +1,7 @@
 <?php 
 	include 'includes/session.php';
 
-	if(isset($_POST['category_id'])){
+	if(isset($_POST['id'])){
 		$id = $_POST['id'];
 		$sql = "SELECT * FROM category WHERE id = '$id'";
 		$query = $conn->query($sql);

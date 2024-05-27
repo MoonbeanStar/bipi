@@ -55,51 +55,7 @@
 				                	?>
 				                </select>
 				             </div>
-	        				<table class="table table-bordered table-striped" id="itemlist">
-			        			<thead>
-									<th>Date Request</th>
-									<th>Date Issued</th>
-									<th>Due Date</th>
-			        				<th>Item</th>
-			        				<th>Dept Name</th>
-			        				<th>Borrower</th>
-								    <th>Location</th>
-			        				<th>Status</th>
-							
-			        			</thead>
-			        			<tbody>
-			        			<?php
-			        				//$sql = "SELECT * FROM items $where";
-									$sql = "SELECT *, items.item,items.status, category.name
-FROM items INNER JOIN category ON items.category_id = category.id INNER JOIN borrow ON items.item = borrow.item INNER JOIN employees ON borrow.employee_id = employees.id INNER JOIN department ON employees.department_id = department.id INNER JOIN location ON borrow.location = location.id $where";
-		
-									$query = $conn->query($sql);
-			        				while($row = $query->fetch_assoc()){
-			       if($row['status']){
-                        $status = '<span class="label label-danger">Not Return</span>';
-						
-						 echo "
-			        						<tr>
-												<td>".date('M d, Y', strtotime($row['date_borrow']))."</td>
-												<td>".date('M d, Y', strtotime($row['date_issued']))."</td>
-												<td>".date('M d, Y', strtotime($row['due_date']))."</td>
-			        							<td>".$row['item']."</td>
-			        							<td>".$row['depname']."</td>
-			        							<td>".$row['firstname'].' '.$row['lastname']."</td>
-												<td>".$row['loc']."</td>
-			        							<td>".$status."</td>
-			        						</tr>
-			        					";
-                      }
-					  
-                      else{
-                        
-                      }
-                     
-			        				}
-			        			?>
-			        			</tbody>
-			        		</table>
+	        				
 	        			</div>
 	        		</div>
 	        	</div>

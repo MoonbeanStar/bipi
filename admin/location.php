@@ -15,7 +15,6 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Transaction</li>
         <li class="active">Location</li>
       </ol>
     </section>
@@ -52,8 +51,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead bgcolor='Lavender' style='color: black;'>
-                  <th>Location Area</th>
-                  <th>Address</th>
+                  <th>Location Address</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
@@ -64,7 +62,6 @@
                       echo "
                         <tr>
                           <td>".$row['loc']."</td>
-                          <td>".$row['address']."</td>
                           <td>
                             <button class='btn btn-info btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
@@ -112,7 +109,6 @@ function getRow(id){
     success: function(response){
       $('.corid').val(response.id);
       $('#edit_loc').val(response.loc);
-      $('#edit_address').val(response.address);
       $('#del_loc').html(response.loc);
     }
   });

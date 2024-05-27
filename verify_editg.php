@@ -3,14 +3,14 @@
 
 	if(isset($_POST['edit'])){
 		$id = $_POST['id'];
-		$name = $_POST['employee_id'];
-		$duedate = $_POST['duedate'];
+		$asnNo = $_POST['asn_no'];
+		$name = $_POST['supplier_id'];
 	
 		
-		$sql = "UPDATE borrow SET date_guard=NOW(),status ='5' WHERE id = '$id'";
+		$sql = "UPDATE schedule_data SET date_guard=NOW(),status ='3' WHERE id = '$id'";
 
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Item Approve successfully';
+			$_SESSION['success'] = 'Successfully Delivered';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;

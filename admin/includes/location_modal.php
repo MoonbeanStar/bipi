@@ -10,17 +10,10 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="location_add.php">
                 <div class="form-group">
-                    <label for="loc" class="col-sm-3 control-label">Location</label>
+                    <label for="loc" class="col-sm-3 control-label">Location Address</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="loc" name="loc" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="address" class="col-sm-3 control-label">Address</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="address" name="address" required>
                     </div>
                 </div>
             </div>

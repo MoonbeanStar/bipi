@@ -1,9 +1,10 @@
 <?php
 	include 'includes/session.php';
 
-	if(isset($_POST['loginmis'])){
+	if(isset($_POST['loginemp'])){
 		$employee = $_POST['employee'];
-		$sql = "SELECT * FROM employees WHERE employee_id = '$employee' and department_id ='5'";
+	
+		$sql = "SELECT * FROM employees WHERE employee_id = '$employee'";
 		$query = $conn->query($sql);
 		
 		if($query->num_rows > 0){

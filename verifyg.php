@@ -30,86 +30,70 @@
           <div class="box">
 
         	<div class="box-header with-border">
-	        				<h3 class="box-title">For Approval </h3>
+	        				<h3 class="box-title">Delivery Schedule</h3>
 	        </div>
 			<div class="box-body">			
               <table id="example1" class="table table-bordered">
 					<thead bgcolor='Lavender' style='color: black;'>
-				  <th>Line UP</th>
-			      <th>Date Issued</th>
-				 <!-- <th>Date Return</th>-->
-			      <th>Borrower Name / <font color=green>Dept</font></th>
-				
-				  <th>Item Name /<font color=green> Item Code</font></th>
-			
-				  <th>Purpose</th>
-				 <!-- <th>Status</th>-->
+				    <th>Line Up</th>
+            <th>ANS No.</th>
+            <th>Name</th>
+            <th>Delivery Date</th>
+            <th>Delivery Time</th>
+            <th>DR Photo</th>
+				    <th>Status</th>
 				  <th><center>Actions</center></th>
                 </thead>
                 <tbody>
+
+                 <!-- Image Modal -->
+            <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">DR Photo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="DR Photo" class="img-fluid">
+                </div>
+                </div>
+            </div>
+            </div>            
                   <?php
  
-$sql ="SELECT *,borrow.remarks, borrow.id, employees.employee_id, borrow.date_borrow, employees.firstname, employees.lastname , department.depname, borrow.date_issued, borrow.due_date, borrow.status, category.name, borrow.item FROM borrow INNER JOIN employees ON borrow.employee_id = employees.id INNER JOIN department ON employees.department_id = department.id INNER JOIN category ON borrow.item_id = category.id LEFT JOIN items ON borrow.item_id = items.id WHERE borrow.location=16";         
+            $sql = "SELECT schedule_data.*, supplier.firstname, supplier.lastname  FROM schedule_data 
+            JOIN supplier ON schedule_data.supplier_id = supplier.id 
+            ORDER BY schedule_data.id ASC ";
 		
 		$query = $conn->query($sql);
                
-						 while($row = $query->fetch_assoc()){
-						     $loc=$row['location'];
-							 $sta=$row['status'];
-							 $dep=$row['department_id'];
-							 $vid=$row['id'];
-							 $categ=$row['name'];
-                       if($loc==16 and $sta==4){
-                        $status = '<span class="label label-info"><font size=2>For Guard</font></span>';
-						echo"
-                        <tr bgcolor='Orange' style='color: black;'>
-						  <td><font size=10><b>".$row['id']."</td>
-					      <td><font size=5><b>".date('M d, Y', strtotime($row['date_issued']))."</b></td>
-								  
-						  <td><font size=5><b>".$row['firstname'].' '.$row['lastname'].' | <font color=green> '.$row['depname']."</td>
-						
-						  <td><font size=5><b>".$categ.' | <font color=green>'.$row['item']."</td>
-					
-						  <td><font color='black'>".$row['remarks']."</td>
-						  
-					
-                          <td><center>
-                            <button class='btn btn-info btn-sm editg btn-flat' data-id='".$vid."'><i class='fa fa-edit'></i><font size=5> Guard</font></button>
-                            <button class='btn btn-danger btn-sm cancel btn-flat' data-id='".$vid."'><i class='fa fa-arrow-down'></i> Cancel</button></center>
-                          </td>
-                        </tr>
-                      ";
-                      }
-                   //   elseif($loc==16 and $sta==2)
-					 // {
-                       
-					  // $status = '<span class="label label-success">for MIS</span>';
-					   //echo"
-                       // <tr>
-					//	  <td>".$row['id']."</td>
-					//
-                          //<td>".date('M d, Y', strtotime($row['date_needed']))."</td>
-						  //<td>".date('M d, Y', strtotime($row['due_date']))."</td>					  
-						  //<td>".$row['firstname'].' '.$row['lastname']."</td>
-						  //<td>".$categ."</td>
-						  //<td>".$row['item']."</td>
-						  //<td>".$row['depname']."</td>
-						  //<td><textarea readonly>".$row['remarks']."</textarea></td>
-						  
-						  //<td>". $status."</td>
-                          //<td><center>
-                            //<button class='btn btn-success btn-sm edit btn-flat' data-id='".$vid."'><i class='fa fa-edit'></i> MIS</button>
-                           // <button class='btn btn-danger btn-sm cancelm btn-flat' data-id='".$vid."'><i class='fa fa-arrow-down'></i> Cancel</button></center>
-                         // </td>
-                       // </tr>
-                      //";
-					 // }		
-					 else{
-
+    if ($query->num_rows > 0) {
+      while ($row = $query->fetch_assoc()) {
+          $sta = $row['status'];
+          if ($sta == 2) {
+              $status = '<span class="label label-info"><font size=2>For Guard</font></span>';
+              
+              echo "<tr bgcolor='Orange' style='color: black;'>";
+              echo "<td>" . $row["id"] . "</td>";
+              echo "<td>" . $row["ans_no"] . "</td>";
+              echo "<td>" . ucwords($row['firstname'] . ' ' . $row['lastname']) . "</td>";
+              echo "<td>" . $row["delDate"] . "</td>";
+              echo "<td>" . $row["delTime"] . "</td>";
+              echo "<td><img src='images/" . $row['drPhoto'] . "' alt='DR Photo' style='width:80px;height:80px;cursor:pointer;' onclick='showImageModal(\"images/" . $row['drPhoto'] . "\")'></td>";
+              echo "<td><span class='label label-success'>Approved</span></td>";
+              echo "<td>";
+              echo "<button class='btn btn-success btn-sm editg btn-flat' data-id='" . $row["id"] . "'><i class='fa fa-edit'></i> Delivered</button>";
+           
+              echo "</td>";
+              echo "</tr>";
+          }
+        }
+                      }else{
+                        echo "<tr><td colspan='10'>No data available</td></tr>";
 					  }
-					  
-					
-                    }
                   ?>
                 </tbody>
               </table>
@@ -187,5 +171,13 @@ function getRow(id){
   });
 }
 </script>
+
+<script>
+function showImageModal(src) {
+    $('#modalImage').attr('src', src);
+    $('#imageModal').modal('show');
+}
+</script>
+
 </body>
 </html>

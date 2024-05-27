@@ -19,14 +19,14 @@
                     <label for="edit_name" class="col-sm-3 control-label"></label>
 
                     <div class="col-sm-9">
-                      <input type="hidden" class="form-control" id="edit_name" name="employee_id" >
+                      <input type="hidden" class="form-control" id="edit_name" name="supplier_id" >
                     </div>
                 </div>
 				
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Approved</button>
+              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Delivered</button>
               </form>
             </div>
         </div>
@@ -34,47 +34,38 @@
 </div>
 
 
-<!-- Edit -->
 <div class="modal fade" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>For MIS Approval....</b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><b>For Head Approval....</b></h4>
             </div>
-			       <div class="text-center">
-                    <p>APPROVED THIS LINE UP</p>
-                    <h2 id="act_mis" class="bold"></h2>
-                </div>
+            <div class="text-center">
+                <p>APPROVED THIS LINE UP</p>
+                <h2 id="act_mis" class="bold"></h2>
+            </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="verify_edit.php">
-                <input type="hidden" class="misid" name="id">
-                <div class="form-group">
-                    <label for="editm_name" class="col-sm-3 control-label"></label>
-
-                    <div class="col-sm-9">
-                      <input type="hidden" class="form-control" id="editm_name" name="employee_id" >
+                <form class="form-horizontal" method="POST" action="verify_edit.php">
+                    <input type="hidden" class="misid" name="id">
+                    <div class="form-group">
+                        <label for="editm_name" class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <input type="hidden" class="form-control" id="editm_name" name="supplier_id">
+                        </div>
                     </div>
-                </div>
-
-
-				<div class="form-group">
-                    <label for="datepicker_edit" class="col-sm-3 control-label">Due Date</label>
-
-                    <div class="col-sm-9">
-                      <div class="date">
-                        <input type="date" class="form-control" id="datepicker_edit" name="duedate"required>
-                      </div>
+                    <div class="form-group">
+                        <label for="ans_no" class="col-sm-3 control-label">ANS Number:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="ans_no" name="ans_no" readonly>
+                        </div>
                     </div>
-                </div>
-
-				
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Approved</button>
-              </form>
+                <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Approved</button>
+                </form>
             </div>
         </div>
     </div>

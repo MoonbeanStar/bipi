@@ -9,6 +9,8 @@
 <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
+
+
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- Data Table Initialize -->
@@ -27,6 +29,12 @@
     $('#searchBox').on('keyup', function(){
     	bookTable.search(this.value).draw();
 	});
+
+
+function showImageModal(imageUrl) {
+    $('#modalImage').attr('src', imageUrl);
+    $('#imageModal').modal('show');
+}
 
   })
 </script>

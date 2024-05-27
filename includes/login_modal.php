@@ -5,15 +5,15 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Employee Login</b></h4>
+              <h4 class="modal-title"><b>Supplier Login</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="login.php">
                 <div class="form-group">
-                    <label for="employee" class="col-sm-3 control-label">Password</label>
+                    <label for="supplier" class="col-sm-3 control-label">Password</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" id="employee" name="employee" required>
+                      <input type="password" class="form-control" id="supplier" name="supplier" required>
                     </div>
                 </div>
             </div>
@@ -61,10 +61,10 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>MIS Login</b></h4>
+              <h4 class="modal-title"><b>Employee Login</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="loginmis.php">
+              <form class="form-horizontal" method="POST" action="loginemp.php">
                 <div class="form-group">
                     <label for="employee" class="col-sm-3 control-label">Password</label>
 
@@ -75,7 +75,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" name="loginmis"><i class="fa fa-sign-in"></i> Login</button>
+              <button type="submit" class="btn btn-primary btn-flat" name="loginemp"><i class="fa fa-sign-in"></i> Login</button>
               </form>
             </div>
         </div>

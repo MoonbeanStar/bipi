@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="#" class="navbar-brand"><b>MIS</b>BorrowingSystem</a>
+        <a href="#" class="navbar-brand"><b>ANS</b>  System</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -12,11 +12,11 @@
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
           <?php
-            if(isset($_SESSION['employee'])){
+            if(isset($_SESSION['supplier'])){
               echo "
                 <li><a href='index.php'>HOME</a></li>
-                <li><a href='transaction.php'>TRANSACTION</a></li>
-				<li><a href='borrow.php'>RESERVED</a></li>
+                <li><a href='sched_history.php'>HISTORY</a></li>
+				        <li><a href='schedule.php'>RESERVED</a></li>
               ";
             } 
           ?>
@@ -27,13 +27,13 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <?php
-            if(isset($_SESSION['employee'])){
-              $photo = (!empty($employee['photo'])) ? 'images/'.$employee['photo'] : 'images/profile.jpg';
+            if(isset($_SESSION['supplier'])){
+              $photo = (!empty($supplier['photo'])) ? 'images/'.$supplier['photo'] : 'images/profile.jpg';
               echo "
                 <li class='user user-menu'>
                   <a href='#'>
                     <img src='".$photo."' class='user-image' alt='User Image'>
-                    <span class='hidden-xs'>".$employee['firstname'].' '.$employee['lastname']."</span>
+                    <span class='hidden-xs'>".$supplier['firstname'].' '.$supplier['lastname']."</span>
                   </a>
                 </li>
                 <li><a href='logout.php'><i class='fa fa-sign-out'></i> LOGOUT</a></li>
@@ -42,14 +42,14 @@
             else{
               echo "
 			    <li><a href='#guard' data-toggle='modal'><i class='fa fa-sign-in'></i> Guard</a></li>
-                <li><a href='#login' data-toggle='modal'><i class='fa fa-sign-in'></i> Request Login</a></li>
-				<li><a href='#mis' data-toggle='modal'><i class='fa fa-sign-in'></i> MIS Head</a></li>
+                <li><a href='#login' data-toggle='modal'><i class='fa fa-sign-in'></i> Supplier Login</a></li>
+				<li><a href='#mis' data-toggle='modal'><i class='fa fa-sign-in'></i> Head Login</a></li>
                <!--<li><a href='admin/' data-toggle='modal'><i class='fa fa-sign-in'></i> ADMIN</a></li>-->
               
 			  ";
             } 
           ?>
-        </ul>
+        </ul>x
       </div>
       <!-- /.navbar-custom-menu -->
     </div>

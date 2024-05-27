@@ -2,9 +2,10 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['add'])){
-		$type_name = $_POST['type_name'];
+		$name = $_POST['name'];
+		$catid = isset($_POST['catid']) ? $_POST['catid'] : 0; // Assuming 0 as default if not provided in the form
 		
-		$sql = "INSERT INTO item_types (type_name) VALUES ('$type_name')";
+		$sql = "INSERT INTO type (catid, name) VALUES ('$catid', '$name')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Item Type added successfully';
 		}
@@ -17,5 +18,4 @@
 	}
 
 	header('location: type.php');
-
 ?>

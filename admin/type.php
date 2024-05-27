@@ -51,20 +51,22 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                  <thead bgcolor='Lavender' style='color: black;'>
+                  <th>Category ID</th>
                   <th>Type</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT * FROM item_types";
+                    $sql = "SELECT * FROM type";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
-                          <td>".$row['type_name']."</td>
+                          <td>".$row['catid']."</td>
+                          <td>".$row['name']."</td>
                           <td>
-                            <button class='btn btn-info btn-sm edit btn-flat' data-id='".$row['type_id']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['type_id']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-info btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
                           </td>
                         </tr>
                       ";
@@ -108,8 +110,9 @@ function getRow(id){
     dataType: 'json',
     success: function(response){
       $('.typeid').val(response.id);
-      $('#edit_tname').val(response.tname);
-      $('#del_type').html(response.dname);
+      $('#edit_catid').val(response.name);
+      $('#edit_name').val(response.name);
+      $('#del_type').html(response.name);
     }
   });
 }

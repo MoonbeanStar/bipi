@@ -39,18 +39,14 @@
 	        				<table class="table table-bordered table-striped" id="example1">
 			        			<thead>
 			        				<th class="hidden"></th>
-			        				<th>Date</th>
-									<th>Date Issued</th>
-									<th>Due Date</th>
-									<th>Date Return</th>
-			        				<th>Item</th>
-									<th>Item Code</th>
+			        				<th>ASN No.</th>
 									<th>Name</th>
-									<th>Dept Name</th>
-			        				<th>Due Count</th>
-									<th>Remarks</th>
-									
-									
+									<th>Delivery Date</th>
+									<th>Delivery Time</th>
+									<th>Item Category</th>
+									<th>Item Type</th>
+									<th>DR Photo</th>
+									<th>Status</th>
 			        			</thead>
 			        			<tbody>
 			        			<?php

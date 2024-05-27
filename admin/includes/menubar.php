@@ -56,7 +56,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="package.php">Package Type</a></li>
-          <li><a href="qty.php">Quantity</a></li>
+          <li><a href="quantity.php">Quantity</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -70,6 +70,19 @@
         <ul class="treeview-menu">
           <li><a href="employee.php"> Employee List</a></li>
           <li><a href="department.php"> Department</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+            <i class="fa fa-users"></i>
+            <span>Suppliers</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="supplier.php">Supplier List</a></li>
+            <!-- Add more supplier-related links as needed -->
         </ul>
       </li>
     </ul>

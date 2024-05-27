@@ -51,6 +51,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                  <thead bgcolor='Lavender' style='color: black;'>
+                  <th>ID</th>
                   <th>Category</th>
                   <th>Tools</th>
                 </thead>
@@ -61,6 +62,7 @@
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
+                          <td>".$row['id']."</td>
                           <td>".$row['name']."</td>
                           <td>
                             <button class='btn btn-info btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>

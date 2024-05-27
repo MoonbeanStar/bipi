@@ -28,7 +28,7 @@
 		$itemcode = $_POST['itemcode'];
 		
 	
-		$sql = "UPDATE items SET status = 1 WHERE item = '$itemcode'";
+		$sql = "UPDATE items SET status =  WHERE item = '$itemcode'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Item updated successfully';
 		}

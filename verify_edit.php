@@ -3,11 +3,10 @@
 
 	if(isset($_POST['edit'])){
 		$id = $_POST['id'];
-		$name = $_POST['employee_id'];
-		$duedate = $_POST['duedate'];
-	
+		$asnNo = $_POST['asn_no'];
+		$name = $_POST['supplier_id'];
 		
-		$sql = "UPDATE borrow SET date_head=NOW(),status ='4',due_date ='$duedate' WHERE id = '$id'";
+		$sql = "UPDATE schedule_data SET date_head=NOW(), status ='2' WHERE id = '$id'";
 
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Item updated successfully';

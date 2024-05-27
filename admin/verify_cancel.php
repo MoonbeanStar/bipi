@@ -6,7 +6,7 @@
 		$statap = $_POST['statap'];
 		
 		//$sql = "DELETE FROM borrow WHERE id = '$id'";
-		$sql = "UPDATE borrow SET status ='4', statap ='$statap' WHERE id = '$id'";
+		$sql = "UPDATE borrow SET status ='', statap ='$statap' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Request deleted successfully';
 		}

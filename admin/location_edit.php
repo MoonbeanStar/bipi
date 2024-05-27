@@ -4,9 +4,8 @@
 	if(isset($_POST['edit'])){
 		$id = $_POST['id'];
 		$loc = $_POST['loc'];
-		$address = $_POST['address'];
 
-		$sql = "UPDATE location SET loc = '$loc', address = '$address' WHERE id = '$id'";
+		$sql = "UPDATE location SET loc = '$loc' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Location updated successfully';
 		}
